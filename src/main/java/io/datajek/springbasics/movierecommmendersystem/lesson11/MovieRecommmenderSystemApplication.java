@@ -12,19 +12,25 @@ public class MovieRecommmenderSystemApplication {
 
 		ApplicationContext appContext = SpringApplication.run(MovieRecommmenderSystemApplication.class, args);
 		
+  		System.out.println();
+  		
 		RecommenderImplementation recommender = appContext.getBean(RecommenderImplementation.class);
 		
-  		System.out.println();
-    	System.out.println();
+		
 		System.out.println(recommender);
    	
 		//call method to get recommendations
 		String[] result = recommender.recommendMovies("Finding Dory");
 				
-		//display results
 		System.out.println();
-    	System.out.println();
-		System.out.println(Arrays.toString(result));
+		Movie m1 = appContext.getBean(Movie.class);
+		System.out.println(m1);
+		
+		System.out.println();
+		Movie m2 = appContext.getBean(Movie.class);
+		System.out.println(m2);
+		
+		System.out.println();
 	}
 
 }
