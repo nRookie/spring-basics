@@ -48,6 +48,10 @@ public class Player {
 		this.birthDate = birthDate;
 	}
 	
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	
 	public int getTitles() {
 		return titles;
 	}
