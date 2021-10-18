@@ -64,4 +64,9 @@ public class Player {
 	public String toString() {
 		return "\nPlayer [id= " + id + ", name= " + name + ", nationality= " + nationality + ", birthDate= " + birthDate + ", titles=" + titles + "]";
 	}
+	
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	
 }

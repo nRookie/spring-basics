@@ -58,4 +58,30 @@ public class PlayerDao {
 		String sql="DELETE FROM PLAYER WHERE ID = ?";
 		return jdbcTemplate.update(sql, new Object[] {id});
 	}
+	
+	
+	public void createTournamentTable() {
+		String sql = "CREATE TABLE TOURNAMENT (ID INTEGER, NAME VARCHAR(50), LOCATION VARCHAR(50), PRIMARY KEY (ID))";
+		jdbcTemplate.execute(sql);
+		System.out.println("Table created");
+	}
+	
+	private static final class PlayerMapper implements RowMapper<Player> {
+		@Override
+		public Player mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+			Player player = new Player();
+			player.setId(resultSet.getInt("id"));
+			player.setName(resultSet.getString("name"));
+			player.setNationality(resultSet.getString("nationality"));
+			player.setBirthDate(resultSet.getDate("birth_date"));
+			player.setTitles(resultSet.getInt("titles"));
+			return player;
+		}
+	}
+	
+	public List<Player> getPlayerByNationality(String nationality) {
+	    String sql = "SELECT * FROM PLAYER WHERE NATIONALITY = ?";
+	    return jdbcTemplate.query(sql, new PlayerMapper(), new Object[] {nationality});
+	}
+	
 }
