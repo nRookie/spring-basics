@@ -10,23 +10,19 @@ import org.springframework.context.annotation.Configuration;
 @Aspect
 @Configuration
 public class ExecutionTimeAspect {
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Around("execution(* io.datajek.springaop.movierecommenderaop..*.*(..))")
 	public Object calculateExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-		// note start
+		//note start time
 		long startTime = System.currentTimeMillis();
-		
-		// allow method call to execute.
+		//allow method call to execute
 		Object returnValue = joinPoint.proceed();
-		
-		// time taken = end time - start time
+		//time taken = end time - start time
 		long timeTaken = System.currentTimeMillis() - startTime;
 		
-		
-		logger.info("Time taken by {} to complete execution is : {}", joinPoint, timeTaken);
-		
+		logger.info("Time taken by {} to complete execution is: {}", joinPoint, timeTaken);
 		return returnValue;
 	}
-	
 }
