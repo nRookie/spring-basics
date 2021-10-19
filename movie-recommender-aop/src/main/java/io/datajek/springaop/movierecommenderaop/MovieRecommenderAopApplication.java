@@ -7,6 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import io.datajek.springaop.movierecommenderaop.business.FilteringTechnique1;
+import io.datajek.springaop.movierecommenderaop.business.FilteringTechnique2;
+
 @SpringBootApplication
 public class MovieRecommenderAopApplication implements CommandLineRunner{
 
