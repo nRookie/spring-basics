@@ -25,7 +25,7 @@ public class LoggingAspect {
 			logger.info("Exception in {} returned with: {}", joinPoint, exception);
 	}  
 	
-	@After(value="execution(* io.datajek.springaop.movierecommenderaop.business.*.*(..))")
+	@After(value = "execution(* io.datajek.springaop.movierecommenderaop.business.*.*(..))")
 	public void logAfterMethod(JoinPoint joinPoint) {
 		logger.info("After {}", joinPoint);
 	}
