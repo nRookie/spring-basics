@@ -18,4 +18,11 @@ public class JoinPointConfig {
 		// for a particular bean
 		@Pointcut("bean(movie*)")
 		public void movieBeanPointcut() {}
+		
+		
+		// custom aspect annotation
+		@Pointcut("@annotation(io.datajek.springaop.movierecommenderaop.aspect.MeasureTime)")
+		public void measureTimeAnnotation() {
+			System.out.println("meassure time annotation");
+		}	
 }
